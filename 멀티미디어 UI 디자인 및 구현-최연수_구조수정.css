@@ -1,0 +1,1492 @@
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+button{
+    font:inherit;
+}
+
+/* =========================================
+   INTRO VIDEO
+========================================= */
+
+.intro-screen{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    background:#000;
+    z-index:9999;
+}
+
+.intro-screen video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.intro-screen.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity 1s ease;
+}
+
+/* =========================================
+   MAIN DESKTOP
+========================================= */
+
+.main-content{
+    position:relative;
+    width: 1920px;
+    height:1080px;
+
+    background-image:url("images/윈도우98.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    opacity:0;
+    transition:opacity 1s ease;
+}
+
+.main-content.show{
+    opacity:1;
+}
+
+/* =========================================
+   DESKTOP FOLDER ICON
+========================================= */
+
+.folder-icon{
+    position:absolute;
+    top:70px;
+    left:120px;
+
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    z-index:10;
+}
+
+.folder-icon img{
+    display:block;
+    width:auto;
+    height:auto;
+}
+
+.folder-icon:hover{
+    filter:brightness(1.08);
+}
+
+.folder-icon:active{
+    transform:translateY(1px);
+}
+
+/* =========================================
+   PROJECT WINDOW
+========================================= */
+
+.project-window{
+    position:absolute;
+    top:40%;
+    left:50%;
+
+    width:min(1000px, 86vw);
+    aspect-ratio:1010 / 720;
+
+    transform:translate(-50%, -50%) scale(.96);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    z-index:100;
+    transition:
+        opacity .11s ease,
+        transform .11s ease,
+        visibility .11s;
+}
+
+.project-window.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translate(-50%, -50%) scale(1);
+}
+
+.project-window-frame{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+/*
+   업로드한 폴더창 이미지의 우측 상단 X 위치에 맞춘
+   투명 클릭 영역입니다.
+*/
+.project-close-button{
+    position:absolute;
+    top:1.5%;
+    right:1.4%;
+
+    width:4.2%;
+    height:5.2%;
+
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    z-index:5;
+}
+
+/* =========================================
+   VIDEO FILE ICONS
+========================================= */
+
+.video-icon-list{
+    position:absolute;
+
+    top:19%;
+    left:5%;
+    right:5%;
+    bottom:7%;
+
+    display:flex;
+    align-items:flex-start;
+    gap:28px;
+
+    z-index:3;
+}
+
+.video-file-button{
+    width:150px;
+    min-height:130px;
+
+    padding:12px;
+
+    border:1px solid transparent;
+    background:transparent;
+    cursor:pointer;
+}
+
+.video-file-button:hover{
+    border-color:#7f9db9;
+    background:rgba(0, 85, 255, .12);
+}
+
+.video-file-button:focus-visible{
+    outline:2px dotted #000;
+    outline-offset:2px;
+}
+
+.video-file-button img{
+    display:block;
+    max-width:100%;
+    width:auto;
+    height:auto;
+    margin:0 auto;
+}
+
+
+
+/* =========================================
+   RESUME PAGE INSIDE THE WINDOW
+========================================= */
+
+.resume-page-area{
+    position:absolute;
+
+    /*
+       포트폴리오 폴더창의 흰색 콘텐츠 영역에 맞춘 값입니다.
+       자기소개서 창 디자인에 따라 조절할 수 있습니다.
+    */
+    top:16.5%;
+    left:2%;
+    right:2%;
+    bottom:3%;
+
+    overflow:auto;
+
+    background:#fff;
+
+    z-index:2;
+}
+
+.resume-page-area img{
+    display:block;
+
+    width:100%;
+    height:auto;
+}
+
+
+/* =========================================
+   INVISIBLE CLOSE BUTTON
+========================================= */
+
+/*
+   직접 디자인한 창 이미지 속 우측 상단 X 위에
+   투명한 버튼을 올립니다.
+*/
+
+.resume-close-button{
+    position:absolute;
+
+    top:1.4%;
+    right:1.4%;
+
+    width:4.2%;
+    height:5.2%;
+
+    border:0;
+    padding:0;
+
+    background:transparent;
+    cursor:pointer;
+
+    z-index:5;
+}
+
+.resume-close-button:hover{
+    background:rgba(255, 255, 255, .12);
+}
+
+
+
+
+/* =========================================
+   SMALL SCREEN
+========================================= */
+
+@media (max-width:700px){
+
+    .folder-icon{
+        top:30px;
+        left:24px;
+    }
+
+    .project-window{
+        width:94vw;
+    }
+
+    .video-icon-list{
+        gap:8px;
+    }
+
+    .video-file-button{
+        width:30%;
+        padding:5px;
+    }
+
+    
+    
+}
+/* =========================================
+   RESUME DESKTOP ICON
+========================================= */
+
+.resume-desktop-icon{
+    top:250px;
+    left:120px;
+}
+
+
+/* =========================================
+   RESUME FOLDER WINDOW
+========================================= */
+
+.resume-window{
+    display:none;
+
+    position:absolute;
+    top:40%;
+    left:50%;
+
+    width:min(1000px, 86vw);
+    aspect-ratio:1010 / 720;
+
+    transform:translate(-50%, -50%);
+
+    z-index:180;
+}
+
+.resume-window.show{
+    display:block;
+}
+
+.resume-window-frame{
+    position:absolute;
+    inset:0;
+
+    display:block;
+    width:100%;
+    height:100%;
+}
+
+
+/* 폴더창 이미지 속 X 버튼 위의 투명 영역 */
+
+.resume-close-button{
+    position:absolute;
+    top:1.4%;
+    right:1.4%;
+
+    width:4.5%;
+    height:5.5%;
+
+    margin:0;
+    padding:0;
+
+    border:0;
+    background:transparent;
+
+    cursor:pointer;
+    z-index:20;
+}
+
+.resume-close-button:hover{
+    background:rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================
+   DOCUMENT ICON INSIDE RESUME FOLDER
+========================================= */
+
+.resume-document-icon{
+    position:absolute;
+    top:22%;
+    left:6%;
+
+    width:150px;
+    padding:10px;
+
+    border:1px solid transparent;
+    background:transparent;
+
+    cursor:pointer;
+    z-index:10;
+}
+
+.resume-document-icon img{
+    display:block;
+
+    width:100%;
+    height:auto;
+
+    margin:0 auto;
+}
+
+.resume-document-icon:hover{
+    border-color:#7f9db9;
+    background:rgba(0, 85, 255, 0.12);
+}
+
+
+/* =========================================
+   RESUME DOCUMENT WINDOW
+========================================= */
+
+.resume-document-window{
+    display:none;
+
+    position:fixed;
+    top:50%;
+    left:50%;
+
+    width:fit-content;
+    height:fit-content;
+
+    transform:translate(-50%, -50%);
+
+    z-index:10000;
+}
+
+.resume-document-window.show{
+    display:block;
+}
+
+.resume-document-image{
+    display:block;
+
+    width:auto;
+    height:auto;
+
+    max-width:92vw;
+    max-height:92vh;
+
+    object-fit:contain;
+}
+
+
+/* =========================================
+   RESUME DOCUMENT CLOSE BUTTON
+========================================= */
+
+.resume-document-close-button{
+    position:absolute;
+    top:12px;
+    right:12px;
+
+    width:44px;
+    height:44px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0;
+    padding:0;
+
+    border:2px solid #000;
+    background:#c0c0c0;
+    color:#000;
+
+    font-size:28px;
+    font-weight:bold;
+    line-height:1;
+
+    cursor:pointer;
+    z-index:10001;
+}
+
+.resume-document-close-button:hover{
+    background:#ff4b4b;
+    color:#fff;
+}
+/* =========================================
+   INTRO SKIP BUTTON
+========================================= */
+
+.intro-skip-button{
+    position:absolute;
+    right:40px;
+    bottom:40px;
+
+    padding:10px 18px;
+
+    border:1px solid rgba(255, 255, 255, 0.65);
+    background:rgba(0, 0, 0, 0.45);
+    color:#fff;
+
+    font-size:13px;
+    letter-spacing:2px;
+
+    cursor:pointer;
+    z-index:10000;
+
+    backdrop-filter:blur(5px);
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.intro-skip-button:hover{
+    background:#fff;
+    color:#000;
+}
+
+.intro-skip-button:active{
+    transform:translateY(1px);
+}
+
+/* =========================================
+   DESKTOP trash ICON
+========================================= */
+
+.trash-icon{
+    position:absolute;
+    top: 430px;
+    left:120px;
+
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    z-index:10;
+}
+
+.trash-icon img{
+    display:block;
+    width:auto;
+    height:auto;
+}
+
+.trash-icon:hover{
+    filter:brightness(1.08);
+}
+
+.trash-icon:active{
+    transform:translateY(1px);
+}
+
+
+/* =========================================
+   FINAL VIDEO PLAYER WINDOW
+   프레임 원본 크기: 1920 × 1080
+========================================= */
+
+.video-window{
+    position:fixed;
+    top:50%;
+    left:50%;
+
+    /*
+       프레임의 16:9 비율을 유지하면서
+       브라우저 화면을 넘지 않도록 조절
+    */
+    width:min(
+        1400px,
+        96vw,
+        calc(96vh * 16 / 9)
+    );
+
+    aspect-ratio:16 / 9;
+
+    transform:translate(-50%, -50%) scale(.97);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    z-index:1000;
+
+    transition:
+        opacity .15s ease,
+        transform .15s ease,
+        visibility .15s;
+}
+
+
+/* 영상 아이콘을 눌렀을 때 창 표시 */
+
+.video-window.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+
+    transform:translate(-50%, -50%) scale(1);
+}
+
+
+/* =========================================
+   VIDEO SCREEN
+   프레임에서 누끼가 뚫린 영역
+========================================= */
+
+.video-screen{
+    position:absolute;
+
+    /*
+       1920 × 1080 프레임에서 측정한 누끼 영역
+       왼쪽 249px / 위 68px
+       가로 1453px / 세로 817px
+    */
+    left:12.96875%;
+    top:6.2963%;
+
+    width:75.6771%;
+    height:75.6481%;
+
+    overflow:hidden;
+
+    /* 영상 비율 때문에 빈 부분이 생기면 검은색 */
+    background-color:#000;
+
+    z-index:1;
+}
+
+
+/* =========================================
+   ACTUAL VIDEO
+========================================= */
+
+#portfolioVideo{
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    margin:0;
+    padding:0;
+    border:0;
+
+    /*
+       영상 원본 1920 × 1080 비율 유지
+       영상이 잘리거나 늘어나지 않음
+    */
+    object-fit:contain;
+    object-position:center;
+
+    /* 남는 부분은 검은색 */
+    background-color:#000;
+}
+
+
+/* =========================================
+   DESIGNED FRAME IMAGE
+========================================= */
+
+.video-window-frame{
+    position:absolute;
+    inset:0;
+
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    /*
+       프레임 원본 16:9 비율 유지
+    */
+    object-fit:contain;
+
+    /*
+       프레임은 영상 위에 표시
+    */
+    z-index:2;
+
+    /*
+       프레임 이미지가 영상 컨트롤 클릭을 막지 않도록 함
+    */
+    pointer-events:none;
+}
+
+
+/* =========================================
+   VIDEO CLOSE BUTTON
+   프레임 이미지 속 X 위에 올라가는 영역
+========================================= */
+
+.video-close-button{
+    position:absolute;
+
+    /* 프레임 속 X 버튼 중심 위치 */
+    left:87.4%;
+    top:3.7%;
+
+    /* 실제 X보다 넓은 클릭 영역 */
+    width:4.6%;
+    height:7%;
+
+    transform:translate(-50%, -50%);
+
+    margin:0;
+    padding:0;
+    border:0;
+
+    background:transparent;
+    cursor:pointer;
+
+    z-index:10;
+}
+
+
+/* =========================================
+   SMALL SCREEN
+========================================= */
+
+@media (max-width:700px){
+
+    .video-window{
+        width:min(
+            98vw,
+            calc(94vh * 16 / 9)
+        );
+    }
+}
+
+/* =========================================
+   TASKBAR
+   원본 이미지: 1919 × 71
+========================================= */
+
+.taskbar{
+    position:fixed;
+    left:0;
+    bottom:0;
+
+    width:100vw;
+    height:auto;
+
+    z-index:900;
+}
+
+.taskbar-image{
+    display:block;
+
+    width:100%;
+    height:auto;
+
+    object-fit:contain;
+    pointer-events:none;
+}
+
+/* =========================================
+   TASKBAR CLICK BUTTON
+========================================= */
+
+.taskbar-button{
+    position:absolute;
+
+    margin:0;
+    padding:0;
+    border:0;
+
+    background:transparent;
+    cursor:pointer;
+
+    z-index:2;
+}
+
+/*
+   taskbar 안에서 클릭할 버튼의 위치입니다.
+   디자인에 맞게 숫자를 조절하세요.
+*/
+.taskbar-first-button{
+    position:absolute;
+
+    /* 이미지 왼쪽 Start 버튼 영역 */
+    left:0.3%;
+    top:8%;
+
+    width:7.2%;
+    height:82%;
+
+    margin:0;
+    padding:0;
+    border:0;
+
+    background:transparent;
+    cursor:pointer;
+
+    z-index:2;
+}
+
+/* 클릭 영역 확인용: 작업이 끝나면 삭제하거나 투명하게 변경 */
+.taskbar-first-button:hover{
+    background:rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================
+   TASKBAR POPUP WINDOW
+========================================= */
+
+.taskbar-popup-window{
+    display:none;
+
+    position:fixed;
+
+    left:15px;
+    bottom:75px;
+
+    width:min(500px, 80vw);
+
+    z-index:950;
+}
+
+.taskbar-popup-window.show{
+    display:block;
+}
+
+.taskbar-popup-image{
+    display:block;
+
+    width:100%;
+    height:auto;
+
+    pointer-events:none;
+}
+
+
+/* =========================================
+   TASKBAR POPUP CLOSE BUTTON
+========================================= */
+
+.taskbar-popup-close{
+    position:absolute;
+
+    /*
+       팝업 이미지 속 X 버튼 위치에 맞춰
+       수정해야 하는 값입니다.
+    */
+    top:2%;
+    right:2%;
+
+    width:9%;
+    height:9%;
+
+    margin:0;
+    padding:0;
+    border:0;
+
+    background:transparent;
+    cursor:pointer;
+
+    z-index:5;
+}
+
+.taskbar-popup-close:hover{
+    background:rgba(255, 255, 255, 0.15);
+}
+/* =========================================
+   1920 × 1080 DESKTOP RESPONSIVE SCALE
+   브라우저가 작을 때 전체 화면을 비례 축소하고 중앙 정렬
+========================================= */
+
+:root{
+    --desktop-scale:1;
+}
+
+/* body가 1920×1080 작업 화면을 항상 정중앙에 배치 */
+body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* 작업 화면 전체를 하나의 캔버스로 비례 축소 */
+.main-content{
+    position:relative;
+    left:auto;
+    top:auto;
+
+    flex:0 0 auto;
+
+    width:1920px;
+    height:1080px;
+
+    overflow:hidden;
+
+    transform:scale(var(--desktop-scale));
+    transform-origin:center center;
+
+    will-change:transform, opacity;
+}
+
+/*
+   기존 700px 이하 미디어쿼리가 아이콘 위치와 크기를
+   변경하지 못하도록 원래 1920×1080 좌표로 복구
+*/
+.folder-icon{
+    top:70px;
+    left:120px;
+}
+
+.resume-desktop-icon{
+    top:250px;
+    left:120px;
+}
+
+.project-window,
+.resume-window{
+    width:1000px;
+}
+
+.video-icon-list{
+    gap:28px;
+}
+
+.video-file-button{
+    width:150px;
+    padding:12px;
+}
+
+/*
+   아래 요소들을 브라우저 화면이 아닌
+   1920×1080 main-content 내부 좌표에 고정
+*/
+.video-window,
+.resume-document-window,
+.taskbar,
+.taskbar-popup-window{
+    position:absolute;
+}
+
+/* 영상창 크기를 디자인 캔버스 기준으로 고정 */
+.video-window{
+    width:1400px;
+}
+
+/* 자기소개서 이미지도 1920×1080 캔버스를 넘지 않게 제한 */
+.resume-document-image{
+    max-width:1760px;
+    max-height:994px;
+}
+
+/* 작업표시줄을 데스크톱 화면 하단에 고정 */
+.taskbar{
+    left:0;
+    bottom:0;
+
+    width:1920px;
+}
+
+/* 시작 메뉴 팝업도 같은 좌표계 사용 */
+.taskbar-popup-window{
+    left:15px;
+    bottom:75px;
+
+    width:500px;
+}
+
+/* =========================================
+   PROJECT / RESUME WINDOW POSITION
+========================================= */
+
+.project-window{
+    left:720px;
+    top:410px;
+}
+
+.resume-window{
+    left:1200px;
+    top:535px;
+}
+
+
+/* =========================================
+   PORTFOLIO FILE GRID
+   영상 4개 + 통합 문서 3개
+========================================= */
+
+.video-icon-list{
+    display:grid;
+    grid-template-columns:repeat(4, 150px);
+    grid-auto-rows:150px;
+
+    align-content:start;
+    justify-content:start;
+
+    column-gap:32px;
+    row-gap:28px;
+}
+
+.doc-file-button{
+    width:150px;
+    min-height:130px;
+    padding:12px;
+
+    border:1px solid transparent;
+    background:transparent;
+    cursor:pointer;
+}
+
+.doc-file-button:hover{
+    border-color:#7f9db9;
+    background:rgba(0, 85, 255, 0.12);
+}
+
+.doc-file-button:focus-visible{
+    outline:2px dotted #000;
+    outline-offset:2px;
+}
+
+.doc-file-button img{
+    display:block;
+    width:auto;
+    height:auto;
+    max-width:100%;
+    margin:0 auto;
+}
+
+
+/* =========================================
+   PAINT DOCUMENT VIEWER
+   실제 frame: 1680 × 945
+========================================= */
+
+.doc-viewer-window{
+    position:absolute;
+    left:960px;
+    top:500px;
+
+    width:1760px;
+    aspect-ratio:1680 / 945;
+
+    transform:translate(-50%, -50%) scale(0.97);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    z-index:1600;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease,
+        visibility 0.15s;
+}
+
+.doc-viewer-window.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translate(-50%, -50%) scale(1);
+}
+
+/* profile-frame.png의 실제 투명 작업 영역:
+   x 230 / y 111 / width 1292 / height 717 */
+.doc-viewer-scroll-area{
+    position:absolute;
+    left:13.6905%;
+    top:11.7460%;
+    width:76.9048%;
+    height:75.8730%;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    background:#000;
+    z-index:1;
+
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+    overscroll-behavior:contain;
+}
+
+.doc-viewer-scroll-area::-webkit-scrollbar{
+    display:none;
+}
+
+.doc-viewer-image{
+    display:block;
+    width:100%;
+    height:auto;
+    margin:0;
+    padding:0;
+    background:#fff;
+}
+
+.doc-viewer-frame{
+    position:absolute;
+    inset:0;
+
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+
+    pointer-events:none;
+    user-select:none;
+    z-index:2;
+}
+
+.doc-viewer-close-button{
+    position:absolute;
+    left:90.75%;
+    top:3.25%;
+    width:2.25%;
+    height:3.9%;
+
+    margin:0;
+    padding:0;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    z-index:3;
+}
+
+.doc-viewer-close-button:hover{
+    background:rgba(255, 255, 255, 0.14);
+}
+
+
+/* FINAL RECOVERY OVERRIDES */
+.taskbar-button,
+.taskbar-popup-window,
+.resume-document-window,
+.resume-document-icon,
+.storyboard-window,
+.storyboard-file-button{
+    display:none !important;
+}
+
+
+/* =========================================
+   PROJECT FOLDER STRUCTURE
+   Portfolio > Project Folder > Video / Planning
+========================================= */
+.project-folder-list{
+    position:absolute;
+    top:19%;
+    left:5%;
+    right:5%;
+    bottom:7%;
+
+    display:grid;
+    grid-template-columns:repeat(4, 170px);
+    grid-auto-rows:165px;
+    align-content:start;
+    justify-content:start;
+    column-gap:28px;
+    row-gap:28px;
+
+    z-index:3;
+}
+
+.project-folder-button{
+    width:170px;
+    min-height:145px;
+    padding:10px 8px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    gap:7px;
+
+    border:1px solid transparent;
+    background:transparent;
+    color:#000;
+    cursor:pointer;
+}
+
+.project-folder-button:hover,
+.project-folder-button:focus-visible{
+    border-color:#7f9db9;
+    background:rgba(0, 85, 255, 0.12);
+    outline:none;
+}
+
+/* Windows 98 느낌의 기본 폴더 아이콘 - 별도 이미지 파일 없이 표시 */
+.project-folder-visual{
+    position:relative;
+    display:block;
+    width:82px;
+    height:58px;
+    margin-top:4px;
+
+    background:#f4d447;
+    border:2px solid #2b2b2b;
+    box-shadow:
+        inset 2px 2px 0 rgba(255,255,255,.7),
+        inset -2px -2px 0 rgba(0,0,0,.18);
+}
+
+.project-folder-visual::before{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:-13px;
+    width:35px;
+    height:14px;
+
+    background:#f4d447;
+    border:2px solid #2b2b2b;
+    border-bottom:0;
+}
+
+.project-folder-label{
+    display:block;
+    width:100%;
+    min-height:32px;
+
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:13px;
+    line-height:1.2;
+    text-align:center;
+    word-break:keep-all;
+}
+
+/* 프로젝트 폴더 내부 창 */
+.project-detail-window{
+    position:absolute;
+    left:960px;
+    top:530px;
+    width:1000px;
+    aspect-ratio:1010 / 720;
+
+    transform:translate(-50%, -50%) scale(.96);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    z-index:350;
+    transition:
+        opacity .11s ease,
+        transform .11s ease,
+        visibility .11s;
+}
+
+.project-detail-window.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translate(-50%, -50%) scale(1);
+}
+
+.project-detail-window-frame{
+    position:absolute;
+    inset:0;
+    display:block;
+    width:100%;
+    height:100%;
+    z-index:1;
+    pointer-events:none;
+}
+
+.project-detail-close-button{
+    position:absolute;
+    top:1.5%;
+    right:1.4%;
+    width:4.2%;
+    height:5.2%;
+    border:0;
+    padding:0;
+    background:transparent;
+    cursor:pointer;
+    z-index:5;
+}
+
+.project-detail-close-button:hover{
+    background:rgba(255,255,255,.12);
+}
+
+.project-detail-files{
+    position:absolute;
+    top:19%;
+    left:5%;
+    right:5%;
+    bottom:7%;
+
+    display:grid;
+    grid-template-columns:repeat(2, 250px);
+    grid-auto-rows:210px;
+    align-content:start;
+    justify-content:start;
+    column-gap:32px;
+    row-gap:28px;
+
+    z-index:3;
+}
+
+.project-detail-files .video-file-button,
+.project-detail-files .doc-file-button{
+    width:250px;
+    min-height:190px;
+    padding:8px;
+
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+}
+
+.project-detail-files .video-file-button img,
+.project-detail-files .doc-file-button img{
+    width:auto;
+    height:auto;
+    max-width:230px;
+    max-height:175px;
+    object-fit:contain;
+}
+
+/* 기존 8개 파일용 grid는 새 구조에서는 사용하지 않음 */
+.project-window > .video-icon-list{
+    display:none;
+}
+
+
+/* =========================================
+   CODE-ONLY INTERACTION UPGRADE
+   이미지 소스를 바꾸지 않고 창 제어/작업표시줄/선택 상태를 추가합니다.
+========================================= */
+
+/* 기존 recovery rule의 taskbar-button 숨김과 분리된 새 인터랙션 요소 */
+.managed-window{
+    --managed-z:100;
+}
+
+.managed-window.is-minimized{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+}
+
+.resume-window.is-minimized{
+    display:none !important;
+}
+
+/* 이미지 속 최소화 아이콘 위에만 얹는 투명 클릭 영역 */
+.window-minimize-button{
+    position:absolute;
+    margin:0;
+    padding:0;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    z-index:20;
+}
+.window-minimize-button:hover{
+    background:rgba(255,255,255,.10);
+}
+
+/* 폴더 프레임: X 왼쪽의 최소화 버튼 위치 */
+.project-minimize-button,
+.project-detail-minimize-button,
+.resume-minimize-button{
+    top:1.5%;
+    right:10.1%;
+    width:4.2%;
+    height:5.2%;
+}
+
+/* 영상 플레이어 프레임의 최소화 위치 */
+.video-minimize-button{
+    left:77.7%;
+    top:.2%;
+    width:4.6%;
+    height:7%;
+}
+
+/* 그림판 프레임의 최소화 위치 */
+.doc-viewer-minimize-button{
+    left:85.25%;
+    top:3.25%;
+    width:2.25%;
+    height:3.9%;
+}
+
+/* 파일/폴더 단일 선택 */
+.project-folder-button.is-selected,
+.project-detail-files .video-file-button.is-selected,
+.project-detail-files .doc-file-button.is-selected,
+.folder-icon.is-selected,
+.trash-icon.is-selected{
+    border-color:#7f9db9 !important;
+    background:rgba(0,85,255,.16) !important;
+    outline:1px dotted #000;
+    outline-offset:-2px;
+}
+
+/* 바탕화면 아이콘 선택영역을 버튼 전체에 적용 */
+.folder-icon,
+.trash-icon{
+    padding:4px;
+    border:1px solid transparent;
+}
+
+/* 폴더 하단 상태 표시 - 기존 프레임 위에 아주 얇게 오버레이 */
+.window-status{
+    position:absolute;
+    left:4.2%;
+    right:4.2%;
+    bottom:2.8%;
+    height:22px;
+    display:flex;
+    align-items:center;
+    padding:0 8px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    color:#111;
+    font-size:12px;
+    line-height:1;
+    pointer-events:none;
+    z-index:4;
+}
+
+/* 작업표시줄은 항상 창보다 위 */
+.taskbar{
+    z-index:9000;
+}
+
+/* START 그림은 기존 taskbar 이미지에 있으므로 클릭영역만 추가 */
+.taskbar-start-hitarea{
+    position:absolute;
+    left:6px;
+    bottom:5px;
+    width:132px;
+    height:58px;
+    border:0;
+    padding:0;
+    background:transparent;
+    cursor:pointer;
+    z-index:5;
+}
+.taskbar-start-hitarea:active{
+    box-shadow:inset 2px 2px rgba(0,0,0,.35);
+}
+
+.taskbar-window-list{
+    position:absolute;
+    left:150px;
+    right:150px;
+    top:8px;
+    height:54px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    overflow:hidden;
+    z-index:4;
+}
+
+.taskbar-window-button{
+    flex:0 1 230px;
+    min-width:110px;
+    max-width:230px;
+    height:48px;
+    padding:0 10px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    text-align:left;
+    color:#000;
+    font-size:14px;
+    border-top:2px solid #fff;
+    border-left:2px solid #fff;
+    border-right:2px solid #4b4b4b;
+    border-bottom:2px solid #4b4b4b;
+    background:#c0c0c0;
+    cursor:pointer;
+}
+.taskbar-window-button.is-active{
+    border-top:2px solid #4b4b4b;
+    border-left:2px solid #4b4b4b;
+    border-right:2px solid #fff;
+    border-bottom:2px solid #fff;
+    background:#d5d5d5;
+}
+
+.taskbar-clock{
+    position:absolute;
+    right:12px;
+    top:9px;
+    width:126px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#000;
+    font-size:14px;
+    font-variant-numeric:tabular-nums;
+    background:#c0c0c0;
+    border-top:2px solid #555;
+    border-left:2px solid #555;
+    border-right:2px solid #fff;
+    border-bottom:2px solid #fff;
+    z-index:5;
+}
+
+/* 키보드 포커스 */
+.taskbar-window-button:focus-visible,
+.taskbar-start-hitarea:focus-visible{
+    outline:1px dotted #000;
+    outline-offset:-4px;
+}

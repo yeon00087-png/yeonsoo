@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio</title>
+<link href="멀티미디어 UI 디자인 및 구현-최연수_구조수정.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="intro-screen">
+<video autoplay="" id="introVideo" muted="" playsinline="">
+<source src="intro/포트폴리오 intro 로딩_1.mp4" type="video/mp4"/>
+</video>
+<button class="intro-skip-button" id="introSkipButton" type="button">SKIP INTRO</button>
+</div>
+<div class="main-content">
+<button aria-label="포트폴리오 폴더 열기" class="folder-icon" id="projectFolder" type="button">
+<img alt="포트폴리오 폴더" src="icons/폴더폰트-아이콘.png"/>
+</button>
+<button aria-label="자기소개서 폴더 열기" class="folder-icon resume-desktop-icon" id="resumeFolder" type="button">
+<img alt="자기소개서" src="icons/내컴퓨터폰트-아이콘.png"/>
+</button>
+<section aria-hidden="true" class="project-window managed-window" id="projectWindow" data-window-title="PORTFOLIO">
+<img alt="포트폴리오 폴더창" class="project-window-frame" src="images/포트폴리오-폴더창.png"/>
+<button aria-label="포트폴리오 폴더창 최소화" class="window-minimize-button project-minimize-button" data-window-target="projectWindow" type="button"></button>
+<button aria-label="포트폴리오 폴더창 닫기" class="project-close-button" id="projectCloseButton" type="button"></button>
+<div class="project-folder-list" aria-label="프로젝트 목록">
+<button class="project-folder-button" data-project="dangdang" type="button">
+<span class="project-folder-visual" aria-hidden="true"></span>
+<span class="project-folder-label">01_DANGDANG TOUR PASS</span>
+</button>
+<button class="project-folder-button" data-project="topup" type="button">
+<span class="project-folder-visual" aria-hidden="true"></span>
+<span class="project-folder-label">02_TOPUP</span>
+</button>
+<button class="project-folder-button" data-project="yogurt" type="button">
+<span class="project-folder-visual" aria-hidden="true"></span>
+<span class="project-folder-label">03_YOGURT WORLD</span>
+</button>
+<button class="project-folder-button" data-project="cinebeam" type="button">
+<span class="project-folder-visual" aria-hidden="true"></span>
+<span class="project-folder-label">04_LG CINEBEAM</span>
+</button>
+</div>
+<div class="window-status" id="projectWindowStatus">4 object(s)</div>
+</section>
+
+<section aria-hidden="true" class="project-detail-window managed-window" id="projectDetailWindow" data-window-title="PROJECT">
+<img alt="프로젝트 상세 폴더창" class="project-detail-window-frame" src="images/포트폴리오-폴더창.png"/>
+<button aria-label="프로젝트 상세 폴더창 최소화" class="window-minimize-button project-detail-minimize-button" data-window-target="projectDetailWindow" type="button"></button>
+<button aria-label="프로젝트 상세 폴더창 닫기" class="project-detail-close-button" id="projectDetailCloseButton" type="button"></button>
+<div class="project-detail-files" id="projectDetailFiles"></div>
+<div class="window-status" id="projectDetailStatus">2 object(s)</div>
+</section>
+<section aria-hidden="true" class="video-window managed-window" id="videoWindow" data-window-title="MEDIA PLAYER">
+<img alt="동영상 플레이어 프레임" class="video-window-frame" src="images/동영상재생-프레임.png"/>
+<div class="video-screen">
+<video controls="" id="portfolioVideo" playsinline="">브라우저가 비디오 재생을 지원하지 않습니다.</video>
+</div>
+<button aria-label="영상창 최소화" class="window-minimize-button video-minimize-button" data-window-target="videoWindow" type="button"></button>
+<button aria-label="영상창 닫기" class="video-close-button" id="videoCloseButton" type="button"></button>
+</section>
+<section aria-hidden="true" class="doc-viewer-window managed-window" id="docViewerWindow" data-window-title="DOCUMENT">
+<div class="doc-viewer-scroll-area" id="docViewerScrollArea">
+<img alt="기획서와 스토리보드" class="doc-viewer-image" id="docViewerImage"/>
+</div>
+<img alt="윈도우98 그림판 문서 뷰어" class="doc-viewer-frame" src="images/profile-frame.png"/>
+<button aria-label="문서창 최소화" class="window-minimize-button doc-viewer-minimize-button" data-window-target="docViewerWindow" type="button"></button>
+<button aria-label="기획서와 스토리보드 창 닫기" class="doc-viewer-close-button" id="docViewerCloseButton" type="button"></button>
+</section>
+<section aria-hidden="true" class="resume-window managed-window" id="resumeWindow" data-window-title="ABOUT ME">
+<img alt="자기소개서 폴더창" class="resume-window-frame" src="images/포트폴리오-폴더창.png"/>
+<button aria-label="자기소개서 폴더창 최소화" class="window-minimize-button resume-minimize-button" data-window-target="resumeWindow" type="button"></button>
+<button aria-label="자기소개서 폴더창 닫기" class="resume-close-button" id="resumeCloseButton" type="button"></button>
+</section>
+<button aria-label="휴지통 열기" class="trash-icon" id="trashIcon" type="button">
+<img alt="휴지통" src="icons/휴지통폰트-아이콘.png"/>
+</button>
+<div class="taskbar">
+<img alt="작업 표시줄" class="taskbar-image" src="images/2.png"/>
+<button aria-label="시작 메뉴" class="taskbar-start-hitarea" id="taskbarStartButton" type="button"></button>
+<div class="taskbar-window-list" id="taskbarWindowList" aria-label="열린 창"></div>
+<time class="taskbar-clock" id="taskbarClock" aria-label="현재 시간"></time>
+</div>
+</div>
+<script src="멀티미디어 UI 디자인 및 구현-최연수_구조수정.js"></script>
+</body>
+</html>
